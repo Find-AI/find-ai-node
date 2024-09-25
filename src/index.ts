@@ -161,6 +161,8 @@ export namespace FindAI {
   export import PeopleEnrichment = API.PeopleEnrichment;
 
   export import Searches = API.Searches;
+  export import SearchCreateResponse = API.SearchCreateResponse;
+  export import SearchRetrieveResponse = API.SearchRetrieveResponse;
   export import SearchCreateParams = API.SearchCreateParams;
 }
 
