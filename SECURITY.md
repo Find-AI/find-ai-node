@@ -20,7 +20,7 @@ or products provided by Find AI please follow the respective company's security 
 
 ### Find AI Terms and Policies
 
-Please contact dev-feedback@find-ai.com for any questions or concerns regarding security of our services.
+Please contact help@usefind.ai for any questions or concerns regarding security of our services.
 
 ---
 
