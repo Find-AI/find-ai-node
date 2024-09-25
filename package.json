@@ -1,8 +1,8 @@
 {
   "name": "find-ai",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "The official TypeScript library for the Find AI API",
-  "author": "Find AI <dev-feedback@find-ai.com>",
+  "author": "Find AI <help@usefind.ai>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
