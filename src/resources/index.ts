@@ -2,4 +2,4 @@
 
 export { CompanyEnrichment } from './company-enrichment/company-enrichment';
 export { PeopleEnrichment } from './people-enrichment/people-enrichment';
-export { SearchCreateParams, Searches } from './searches';
+export { SearchCreateResponse, SearchRetrieveResponse, SearchCreateParams, Searches } from './searches';

@@ -25,7 +25,7 @@ import FindAI from 'find-ai';
 const client = new FindAI();
 
 async function main() {
-  await client.searches.retrieve('id');
+  const searches = await client.searches.retrieve('id');
 }
 
 main();
@@ -42,7 +42,7 @@ import FindAI from 'find-ai';
 const client = new FindAI();
 
 async function main() {
-  await client.searches.retrieve('id');
+  const searches: FindAI.SearchRetrieveResponse = await client.searches.retrieve('id');
 }
 
 main();
@@ -59,7 +59,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const response = await client.searches.retrieve('id').catch(async (err) => {
+  const searches = await client.searches.retrieve('id').catch(async (err) => {
     if (err instanceof FindAI.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -144,9 +144,9 @@ const response = await client.searches.retrieve('id').asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: result, response: raw } = await client.searches.retrieve('id').withResponse();
+const { data: searches, response: raw } = await client.searches.retrieve('id').withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(result);
+console.log(searches);
 ```
 
 ### Making custom/undocumented requests
