@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2024-09-26)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/Find-AI/find-ai-node/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Features
+
+* **api:** manual updates updated ([#11](https://github.com/Find-AI/find-ai-node/issues/11)) ([b31020a](https://github.com/Find-AI/find-ai-node/commit/b31020aae1e3aba52c213f3ac6bdb9106214a6e2))
+
 ## 0.1.0-alpha.3 (2024-09-26)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/Find-AI/find-ai-node/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
