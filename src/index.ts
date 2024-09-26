@@ -8,6 +8,11 @@ import * as API from './resources/index';
 
 export interface ClientOptions {
   /**
+   * Defaults to process.env['FIND_AI_API_KEY'].
+   */
+  apiKey?: string | undefined;
+
+  /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
    * Defaults to process.env['FIND_AI_BASE_URL'].
@@ -68,11 +73,14 @@ export interface ClientOptions {
  * API Client for interfacing with the Find AI API.
  */
 export class FindAI extends Core.APIClient {
+  apiKey: string;
+
   private _options: ClientOptions;
 
   /**
    * API Client for interfacing with the Find AI API.
    *
+   * @param {string | undefined} [opts.apiKey=process.env['FIND_AI_API_KEY'] ?? undefined]
    * @param {string} [opts.baseURL=process.env['FIND_AI_BASE_URL'] ?? https://usefind.ai/found] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
@@ -81,8 +89,19 @@ export class FindAI extends Core.APIClient {
    * @param {Core.Headers} opts.defaultHeaders - Default headers to include with every request to the API.
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
-  constructor({ baseURL = Core.readEnv('FIND_AI_BASE_URL'), ...opts }: ClientOptions = {}) {
+  constructor({
+    baseURL = Core.readEnv('FIND_AI_BASE_URL'),
+    apiKey = Core.readEnv('FIND_AI_API_KEY'),
+    ...opts
+  }: ClientOptions = {}) {
+    if (apiKey === undefined) {
+      throw new Errors.FindAIError(
+        "The FIND_AI_API_KEY environment variable is missing or empty; either provide it, or instantiate the FindAI client with an apiKey option, like new FindAI({ apiKey: 'My API Key' }).",
+      );
+    }
+
     const options: ClientOptions = {
+      apiKey,
       ...opts,
       baseURL: baseURL || `https://usefind.ai/found`,
     };
@@ -96,6 +115,8 @@ export class FindAI extends Core.APIClient {
     });
 
     this._options = options;
+
+    this.apiKey = apiKey;
   }
 
   companyEnrichment: API.CompanyEnrichment = new API.CompanyEnrichment(this);
@@ -111,6 +132,10 @@ export class FindAI extends Core.APIClient {
       ...super.defaultHeaders(opts),
       ...this._options.defaultHeaders,
     };
+  }
+
+  protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
+    return { Authorization: this.apiKey };
   }
 
   static FindAI = this;
