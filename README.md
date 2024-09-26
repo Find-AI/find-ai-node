@@ -22,7 +22,9 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import FindAI from 'find-ai';
 
-const client = new FindAI();
+const client = new FindAI({
+  apiKey: process.env['FIND_AI_API_KEY'], // This is the default and can be omitted
+});
 
 async function main() {
   const searches = await client.searches.retrieve('id');
@@ -39,7 +41,9 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import FindAI from 'find-ai';
 
-const client = new FindAI();
+const client = new FindAI({
+  apiKey: process.env['FIND_AI_API_KEY'], // This is the default and can be omitted
+});
 
 async function main() {
   const searches: FindAI.SearchRetrieveResponse = await client.searches.retrieve('id');
