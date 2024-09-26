@@ -23,7 +23,7 @@ export class Enrich extends APIResource {
 
   /**
    * The endpoint to poll to check the latest results when data about a company isn't
-   * immediately available
+   * immediately available.
    */
   retrieve(token: string, options?: Core.RequestOptions): Core.APIPromise<EnrichRetrieveResponse> {
     return this._client.get(`/v1/companies/enrich/${token}`, options);
