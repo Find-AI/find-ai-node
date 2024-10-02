@@ -9,7 +9,4 @@ export class CompanyEnrichment extends APIResource {
 
 export namespace CompanyEnrichment {
   export import Enrich = EnrichAPI.Enrich;
-  export import EnrichCreateResponse = EnrichAPI.EnrichCreateResponse;
-  export import EnrichRetrieveResponse = EnrichAPI.EnrichRetrieveResponse;
-  export import EnrichCreateParams = EnrichAPI.EnrichCreateParams;
 }
