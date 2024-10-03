@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.5 (2024-10-02)
+
+Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/Find-AI/find-ai-node/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#14](https://github.com/Find-AI/find-ai-node/issues/14)) ([1048891](https://github.com/Find-AI/find-ai-node/commit/1048891f4159cb2ffcd37e68fb1ea8ffb8190366))
+
+
+### Chores
+
+* **internal:** codegen related update ([#16](https://github.com/Find-AI/find-ai-node/issues/16)) ([ad22995](https://github.com/Find-AI/find-ai-node/commit/ad2299542b64059e16b1d8f45c96419bcc66f1eb))
+
 ## 0.1.0-alpha.4 (2024-09-26)
 
 Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/Find-AI/find-ai-node/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
