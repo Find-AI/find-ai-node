@@ -31,7 +31,7 @@ describe('resource searches', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.searches.create(
-        { max_matches: 0, query: 'query', result_mode: 'result_mode', scope: 'scope' },
+        { max_matches: 0, query: 'query', result_mode: 'exact', scope: 'person' },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(FindAI.NotFoundError);
