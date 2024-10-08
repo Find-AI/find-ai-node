@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.1 (2024-10-08)
+
+Full Changelog: [v1.0.0...v1.0.1](https://github.com/Find-AI/find-ai-node/compare/v1.0.0...v1.0.1)
+
+### Chores
+
+* **internal:** pass props through internal parser ([#22](https://github.com/Find-AI/find-ai-node/issues/22)) ([3eaa21b](https://github.com/Find-AI/find-ai-node/commit/3eaa21b6e114439194af8059470addbd0bcc917d))
+
 ## 1.0.0 (2024-10-08)
 
 Full Changelog: [v0.1.0-alpha.5...v1.0.0](https://github.com/Find-AI/find-ai-node/compare/v0.1.0-alpha.5...v1.0.0)
