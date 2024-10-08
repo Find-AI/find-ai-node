@@ -49,30 +49,17 @@ export namespace SearchRetrieveResponse {
 
     name: string;
 
-    photo_url: string;
-
-    reason: string;
-
-    short_description: string;
-
-    slug: string;
-
-    company?: SearchRetrieveResponseItem.Company;
-
-    /**
-     * Returned only for a company.
-     */
-    company_size?: string;
-
     /**
      * Returned only for a person.
      */
-    inferred_email?: string;
+    company?: string;
+
+    criteria_and_reasons?: Array<SearchRetrieveResponseItem.CriteriaAndReason>;
 
     /**
      * Returned only for a company.
      */
-    locations?: Array<string>;
+    domain?: string;
 
     /**
      * Returned only for a person.
@@ -81,21 +68,21 @@ export namespace SearchRetrieveResponse {
   }
 
   export namespace SearchRetrieveResponseItem {
-    export interface Company {
+    export interface CriteriaAndReason {
       /**
-       * Returned only for a person.
+       * Match criteria
        */
-      name: string;
+      criteria?: string;
 
       /**
-       * Returned only for a person.
+       * Whether it's a match
        */
-      slug: string;
+      match?: boolean;
 
       /**
-       * Returned only for a person.
+       * Reason for the match
        */
-      website: string;
+      reason?: string;
     }
   }
 }
@@ -114,12 +101,12 @@ export interface SearchCreateParams {
   /**
    * The mode of the search. Valid values are 'exact' or 'best'.
    */
-  result_mode?: string;
+  result_mode?: 'exact' | 'best';
 
   /**
-   * The scope of the search. Valid values are 'people' or 'companies'.
+   * The scope of the search. Valid values are 'person' or 'company'.
    */
-  scope?: string;
+  scope?: 'person' | 'company';
 }
 
 export namespace Searches {
