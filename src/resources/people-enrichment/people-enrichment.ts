@@ -2,11 +2,14 @@
 
 import { APIResource } from '../../resource';
 import * as EnrichAPI from './enrich';
+import { Enrich } from './enrich';
 
 export class PeopleEnrichment extends APIResource {
   enrich: EnrichAPI.Enrich = new EnrichAPI.Enrich(this._client);
 }
 
-export namespace PeopleEnrichment {
-  export import Enrich = EnrichAPI.Enrich;
+PeopleEnrichment.Enrich = Enrich;
+
+export declare namespace PeopleEnrichment {
+  export { Enrich as Enrich };
 }
