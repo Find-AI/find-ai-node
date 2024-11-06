@@ -3,7 +3,6 @@
 import { APIResource } from '../resource';
 import { isRequestOptions } from '../core';
 import * as Core from '../core';
-import * as SearchesAPI from './searches';
 
 export class Searches extends APIResource {
   /**
@@ -62,6 +61,11 @@ export namespace SearchRetrieveResponse {
     domain?: string;
 
     /**
+     * The status of the search result.
+     */
+    status?: string;
+
+    /**
      * Returned only for a person.
      */
     title?: string;
@@ -109,8 +113,10 @@ export interface SearchCreateParams {
   scope?: 'person' | 'company';
 }
 
-export namespace Searches {
-  export import SearchCreateResponse = SearchesAPI.SearchCreateResponse;
-  export import SearchRetrieveResponse = SearchesAPI.SearchRetrieveResponse;
-  export import SearchCreateParams = SearchesAPI.SearchCreateParams;
+export declare namespace Searches {
+  export {
+    type SearchCreateResponse as SearchCreateResponse,
+    type SearchRetrieveResponse as SearchRetrieveResponse,
+    type SearchCreateParams as SearchCreateParams,
+  };
 }

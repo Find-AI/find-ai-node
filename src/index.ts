@@ -1,10 +1,18 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Errors from './error';
-import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Errors from './error';
+import * as Uploads from './uploads';
 import * as API from './resources/index';
+import {
+  SearchCreateParams,
+  SearchCreateResponse,
+  SearchRetrieveResponse,
+  Searches,
+} from './resources/searches';
+import { CompanyEnrichment } from './resources/company-enrichment/company-enrichment';
+import { PeopleEnrichment } from './resources/people-enrichment/people-enrichment';
 
 export interface ClientOptions {
   /**
@@ -159,7 +167,7 @@ export class FindAI extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
+export {
   FindAIError,
   APIError,
   APIConnectionError,
@@ -173,22 +181,28 @@ export const {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} = Errors;
+} from './error';
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace FindAI {
-  export import RequestOptions = Core.RequestOptions;
+FindAI.CompanyEnrichment = CompanyEnrichment;
+FindAI.PeopleEnrichment = PeopleEnrichment;
+FindAI.Searches = Searches;
 
-  export import CompanyEnrichment = API.CompanyEnrichment;
+export declare namespace FindAI {
+  export type RequestOptions = Core.RequestOptions;
 
-  export import PeopleEnrichment = API.PeopleEnrichment;
+  export { CompanyEnrichment as CompanyEnrichment };
 
-  export import Searches = API.Searches;
-  export import SearchCreateResponse = API.SearchCreateResponse;
-  export import SearchRetrieveResponse = API.SearchRetrieveResponse;
-  export import SearchCreateParams = API.SearchCreateParams;
+  export { PeopleEnrichment as PeopleEnrichment };
+
+  export {
+    Searches as Searches,
+    type SearchCreateResponse as SearchCreateResponse,
+    type SearchRetrieveResponse as SearchRetrieveResponse,
+    type SearchCreateParams as SearchCreateParams,
+  };
 }
 
 export default FindAI;
