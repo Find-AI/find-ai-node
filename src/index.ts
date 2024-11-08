@@ -11,8 +11,6 @@ import {
   SearchRetrieveResponse,
   Searches,
 } from './resources/searches';
-import { CompanyEnrichment } from './resources/company-enrichment/company-enrichment';
-import { PeopleEnrichment } from './resources/people-enrichment/people-enrichment';
 
 export interface ClientOptions {
   /**
@@ -127,8 +125,6 @@ export class FindAI extends Core.APIClient {
     this.apiKey = apiKey;
   }
 
-  companyEnrichment: API.CompanyEnrichment = new API.CompanyEnrichment(this);
-  peopleEnrichment: API.PeopleEnrichment = new API.PeopleEnrichment(this);
   searches: API.Searches = new API.Searches(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
@@ -186,16 +182,10 @@ export {
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-FindAI.CompanyEnrichment = CompanyEnrichment;
-FindAI.PeopleEnrichment = PeopleEnrichment;
 FindAI.Searches = Searches;
 
 export declare namespace FindAI {
   export type RequestOptions = Core.RequestOptions;
-
-  export { CompanyEnrichment as CompanyEnrichment };
-
-  export { PeopleEnrichment as PeopleEnrichment };
 
   export {
     Searches as Searches,
