@@ -1,11 +1,3 @@
-# CompanyEnrichment
-
-## Enrich
-
-# PeopleEnrichment
-
-## Enrich
-
 # Searches
 
 Types:
