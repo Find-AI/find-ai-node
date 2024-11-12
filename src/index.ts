@@ -163,6 +163,19 @@ export class FindAI extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
+FindAI.Searches = Searches;
+export declare namespace FindAI {
+  export type RequestOptions = Core.RequestOptions;
+
+  export {
+    Searches as Searches,
+    type SearchCreateResponse as SearchCreateResponse,
+    type SearchRetrieveResponse as SearchRetrieveResponse,
+    type SearchCreateParams as SearchCreateParams,
+  };
+}
+
+export { toFile, fileFromPath } from 'find-ai/uploads';
 export {
   FindAIError,
   APIError,
@@ -177,22 +190,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from './error';
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
-FindAI.Searches = Searches;
-
-export declare namespace FindAI {
-  export type RequestOptions = Core.RequestOptions;
-
-  export {
-    Searches as Searches,
-    type SearchCreateResponse as SearchCreateResponse,
-    type SearchRetrieveResponse as SearchRetrieveResponse,
-    type SearchCreateParams as SearchCreateParams,
-  };
-}
+} from 'find-ai/error';
 
 export default FindAI;
