@@ -175,7 +175,7 @@ export declare namespace FindAI {
   };
 }
 
-export { toFile, fileFromPath } from 'find-ai/uploads';
+export { toFile, fileFromPath } from './uploads';
 export {
   FindAIError,
   APIError,
@@ -190,6 +190,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from 'find-ai/error';
+} from './error';
 
 export default FindAI;
