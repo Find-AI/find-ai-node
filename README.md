@@ -26,11 +26,7 @@ const client = new FindAI({
   apiKey: process.env['FIND_AI_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const searches = await client.searches.retrieve('id');
-}
-
-main();
+const searches = await client.searches.retrieve('id');
 ```
 
 ### Request & Response types
@@ -45,11 +41,7 @@ const client = new FindAI({
   apiKey: process.env['FIND_AI_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const searches: FindAI.SearchRetrieveResponse = await client.searches.retrieve('id');
-}
-
-main();
+const searches: FindAI.SearchRetrieveResponse = await client.searches.retrieve('id');
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -62,19 +54,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const searches = await client.searches.retrieve('id').catch(async (err) => {
-    if (err instanceof FindAI.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const searches = await client.searches.retrieve('id').catch(async (err) => {
+  if (err instanceof FindAI.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
