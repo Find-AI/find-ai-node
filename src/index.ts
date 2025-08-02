@@ -1,10 +1,16 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Errors from './error';
-import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Errors from './error';
+import * as Uploads from './uploads';
 import * as API from './resources/index';
+import {
+  SearchCreateParams,
+  SearchCreateResponse,
+  SearchRetrieveResponse,
+  Searches,
+} from './resources/searches';
 
 export interface ClientOptions {
   /**
@@ -26,7 +32,7 @@ export interface ClientOptions {
    * Note that request timeouts are retried by default, so in a worst-case scenario you may wait
    * much longer than this timeout before the promise succeeds or fails.
    */
-  timeout?: number;
+  timeout?: number | undefined;
 
   /**
    * An HTTP agent used to manage HTTP(S) connections.
@@ -34,7 +40,7 @@ export interface ClientOptions {
    * If not provided, an agent will be constructed by default in the Node.js environment,
    * otherwise no agent is used.
    */
-  httpAgent?: Agent;
+  httpAgent?: Agent | undefined;
 
   /**
    * Specify a custom `fetch` function implementation.
@@ -50,7 +56,7 @@ export interface ClientOptions {
    *
    * @default 2
    */
-  maxRetries?: number;
+  maxRetries?: number | undefined;
 
   /**
    * Default headers to include with every request to the API.
@@ -58,7 +64,7 @@ export interface ClientOptions {
    * These can be removed in individual requests by explicitly setting the
    * header to `undefined` or `null` in request options.
    */
-  defaultHeaders?: Core.Headers;
+  defaultHeaders?: Core.Headers | undefined;
 
   /**
    * Default query parameters to include with every request to the API.
@@ -66,7 +72,7 @@ export interface ClientOptions {
    * These can be removed in individual requests by explicitly setting the
    * param to `undefined` in request options.
    */
-  defaultQuery?: Core.DefaultQuery;
+  defaultQuery?: Core.DefaultQuery | undefined;
 }
 
 /**
@@ -119,8 +125,6 @@ export class FindAI extends Core.APIClient {
     this.apiKey = apiKey;
   }
 
-  companyEnrichment: API.CompanyEnrichment = new API.CompanyEnrichment(this);
-  peopleEnrichment: API.PeopleEnrichment = new API.PeopleEnrichment(this);
   searches: API.Searches = new API.Searches(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
@@ -159,7 +163,20 @@ export class FindAI extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
+FindAI.Searches = Searches;
+export declare namespace FindAI {
+  export type RequestOptions = Core.RequestOptions;
+
+  export {
+    Searches as Searches,
+    type SearchCreateResponse as SearchCreateResponse,
+    type SearchRetrieveResponse as SearchRetrieveResponse,
+    type SearchCreateParams as SearchCreateParams,
+  };
+}
+
+export { toFile, fileFromPath } from './uploads';
+export {
   FindAIError,
   APIError,
   APIConnectionError,
@@ -173,22 +190,6 @@ export const {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} = Errors;
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
-export namespace FindAI {
-  export import RequestOptions = Core.RequestOptions;
-
-  export import CompanyEnrichment = API.CompanyEnrichment;
-
-  export import PeopleEnrichment = API.PeopleEnrichment;
-
-  export import Searches = API.Searches;
-  export import SearchCreateResponse = API.SearchCreateResponse;
-  export import SearchRetrieveResponse = API.SearchRetrieveResponse;
-  export import SearchCreateParams = API.SearchCreateParams;
-}
+} from './error';
 
 export default FindAI;
