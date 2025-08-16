@@ -174,6 +174,7 @@ export class FindAI extends Core.APIClient {
 }
 
 FindAI.Searches = Searches;
+
 export declare namespace FindAI {
   export type RequestOptions = Core.RequestOptions;
 
