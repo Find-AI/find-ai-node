@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "find-ai/*": ["dist/src/*"],
-      "find-ai": ["dist/src/index.ts"],
+      "find-ai/*": ["./dist/src/*"],
+      "find-ai": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
