@@ -60,7 +60,7 @@ $ yarn link find-ai
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global find-ai
+$ pnpm link --global find-ai
 ```
 
 ## Running tests
